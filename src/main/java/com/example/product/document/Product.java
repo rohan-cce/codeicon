@@ -3,6 +3,8 @@ package com.example.product.document;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 
 @Document
 public class Product {
@@ -14,7 +16,7 @@ public class Product {
     private String colour;
     private Double price;
     private String thumbnail;
-    private String[] image;
+    private List<String> image;
     private String description;
     private Double rating;
     private int stock;
@@ -103,11 +105,11 @@ public class Product {
         this.thumbnail = thumbnail;
     }
 
-    public String[] getImage() {
+    public List<String> getImage() {
         return image;
     }
 
-    public void setImage(String[] image) {
+    public void setImage(List<String> image) {
         this.image = image;
     }
 

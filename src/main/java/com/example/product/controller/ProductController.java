@@ -8,12 +8,14 @@ import com.example.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 
 @RestController
 @RequestMapping("/products")
+@CrossOrigin(value = "*")
 public class ProductController {
 
     @Autowired
@@ -23,16 +25,25 @@ public class ProductController {
     public List<Product> getProducts(){
         return productService.findAll();
     }
+    
 
-    @GetMapping("/{id}")
-    public Product getProduct(@RequestBody int id){
-        return productService.findById(id);
+    @PostMapping("/particular/{id}")
+    public Product getProduct(@PathVariable("id") String id){
+        System.out.println(id+" id value");
+//        try{
+//            //int ans=id/5;
+//        }
+//        catch (Exception e){
+//            System.out.println(e);
+//        }
+        return productService.findById(Integer.parseInt(id));
     }
 
     @PostMapping("/add-product")
     public void addProduct(@RequestBody Product product){
 //       int count=productService.findAll().size();
-        int count= lastProduct()+1;
+
+        int count = lastProduct()+1;
         product.setId(count);
         System.out.println(count);
         productService.save(product);
@@ -46,18 +57,26 @@ public class ProductController {
         productService.save(productDto);
     }
 
-    @DeleteMapping(value = "/delete-product/{id}")
-    public void deleteProduct(@PathVariable("id") int id){
-        productService.deleteById(id);
-        System.out.println("product deleted!!!");
+    @GetMapping(value = "/delete-product/{id}")
+    public List<Product> deleteProduct(@PathVariable("id") int id){
 
+        RestTemplate template = new RestTemplate();
+        String url="http://10.20.4.81:9010/cart/remove-cart/"+id;
+        template.getForObject(url,void.class);
+        System.out.println(" sfasfsd dfsdf");
+        productService.deleteById(id);
+
+
+        System.out.println("product deleted!!!");
+        return productService.findAll();
     }
 
 
-    @GetMapping("/last")
     public int lastProduct(){
        return productService.findAll().get(productService.findAll().size()-1).getId();
     }
+
+
 
 
 }
