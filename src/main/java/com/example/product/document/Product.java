@@ -11,14 +11,14 @@ public class Product {
     @Id
     private int id;
     private String name;
-    private String brand;
+    private String brand=null;
     private String category;
     private String colour;
     private Double price;
     private String thumbnail;
     private List<String> image;
     private String description;
-    private Double rating;
+    private Double rating=3.0;
     private int stock;
     private int productSold;
     private int sellerId;
@@ -143,5 +143,26 @@ public class Product {
 
     public void setSellerId(int sellerId) {
         this.sellerId = sellerId;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", brand='" + brand + '\'' +
+                ", category='" + category + '\'' +
+                ", colour='" + colour + '\'' +
+                ", price=" + price +
+                ", thumbnail='" + thumbnail + '\'' +
+                ", image=" + image +
+                ", description='" + description + '\'' +
+                ", rating=" + rating +
+                ", stock=" + stock +
+                ", productSold=" + productSold +
+                ", sellerId=" + sellerId +
+                ", fuelType='" + fuelType + '\'' +
+                ", seatingCapacity=" + seatingCapacity +
+                '}';
     }
 }

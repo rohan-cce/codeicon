@@ -10,11 +10,5 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends MongoRepository<Product,Integer> {
-    List<Product> findAll();
-    Product findById(int id);
-    Product save(Product product);
-    void deleteById(int id);
 
-//    @Query("_id:-1")
-//    Product findLastId();
 }
