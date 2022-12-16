@@ -1,14 +1,18 @@
 package com.example.product.document;
 
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import net.karneim.pojobuilder.GeneratePojoBuilder;
+import lombok.Data;
+
 import java.util.List;
 
-
-@Document
+@GeneratePojoBuilder
+@Data
 public class Product {
-    @Id
     private int id;
     private String name;
     private String brand=null;
@@ -25,144 +29,5 @@ public class Product {
     private String fuelType;
     private int seatingCapacity;
 
-    public String getBrand() {
-        return brand;
-    }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public String getColour() {
-        return colour;
-    }
-
-    public void setColour(String colour) {
-        this.colour = colour;
-    }
-
-    public String getFuelType() {
-        return fuelType;
-    }
-
-    public void setFuelType(String fuelType) {
-        this.fuelType = fuelType;
-    }
-
-    public int getSeatingCapacity() {
-        return seatingCapacity;
-    }
-
-    public void setSeatingCapacity(int seatingCapacity) {
-        this.seatingCapacity = seatingCapacity;
-    }
-
-    public int getProductSold() {
-        return productSold;
-    }
-
-    public void setProductSold(int productSold) {
-        this.productSold = productSold;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public String getThumbnail() {
-        return thumbnail;
-    }
-
-    public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
-    }
-
-    public List<String> getImage() {
-        return image;
-    }
-
-    public void setImage(List<String> image) {
-        this.image = image;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Double getRating() {
-        return rating;
-    }
-
-    public void setRating(Double rating) {
-        this.rating = rating;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    public int getSellerId() {
-        return sellerId;
-    }
-
-    public void setSellerId(int sellerId) {
-        this.sellerId = sellerId;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", brand='" + brand + '\'' +
-                ", category='" + category + '\'' +
-                ", colour='" + colour + '\'' +
-                ", price=" + price +
-                ", thumbnail='" + thumbnail + '\'' +
-                ", image=" + image +
-                ", description='" + description + '\'' +
-                ", rating=" + rating +
-                ", stock=" + stock +
-                ", productSold=" + productSold +
-                ", sellerId=" + sellerId +
-                ", fuelType='" + fuelType + '\'' +
-                ", seatingCapacity=" + seatingCapacity +
-                '}';
-    }
 }
