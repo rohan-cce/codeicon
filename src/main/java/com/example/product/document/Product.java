@@ -1,9 +1,5 @@
 package com.example.product.document;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import net.karneim.pojobuilder.GeneratePojoBuilder;
 import lombok.Data;
