@@ -1,6 +1,8 @@
 package com.example.product.controller;
 
+import com.example.product.document.Category;
 import com.example.product.document.Recommendation;
+import com.example.product.model.AddReviewRequest;
 import com.example.product.model.ApiPath;
 import com.example.product.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +27,12 @@ public class ReviewController {
     * */
 
     @GetMapping(value = ApiPath.VIEW_ALL_REVIEWS)
-    public Recommendation getAllReviews(){
-        return reviewService.findAllReviews();
+    public Category getAllReviews(@RequestParam String categoryId){
+        return reviewService.findAllReviews(categoryId);
     }
 
     @PostMapping(value = ApiPath.ADD_REVIEW)
-    public addReview(@RequestBody Recommendation recommendation){
-
+    public void addReview(@RequestBody AddReviewRequest addReviewRequest){
+        reviewService.addReview(addReviewRequest);
     }
 }
