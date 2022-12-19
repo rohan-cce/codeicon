@@ -11,6 +11,8 @@ import com.example.product.document.TagReview;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 public class ReviewServiceImpl implements ReviewService {
 
@@ -28,26 +30,29 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public void addReview(AddReviewRequest addReviewRequest) {
         String categoryId = addReviewRequest.getCategoryId();
-        Category category = categoryRepository.findByCategoryId(addReviewRequest.getCategoryId());
-
+        Category category = categoryRepository.findByCategoryId(categoryId);
+        category.setId(category.getId());
         for (Tag tag: category.getTagList()) {
             for (TagReview tagReview: addReviewRequest.getTagList()) {
-                if(tag.getTagName().equalsIgnoreCase(tagReview.getTagName())){
-                    if(tagReview.isLiked()){
-                        tag.setLikes(tag.getLikes() + 1);
-                        if(tag.getLikes() >= tag.getDislikes()){
-                            tag.setRecommended(true);
-                        }else {
-                            tag.setRecommended(false);
+                if(tag.getTagName().equalsIgnoreCase(tagReview.getTagName())) {
+                    if (Objects.nonNull(tagReview.getIsLiked())){
+                        if (tagReview.getIsLiked()) {
+                            tag.setLikes(tag.getLikes() + 1);
+                            if (tag.getLikes() >= tag.getDislikes()) {
+                                tag.setRecommended(true);
+                            } else {
+                                tag.setRecommended(false);
+                            }
+                        } else {
+                            tag.setDislikes(tag.getDislikes() + 1);
+                            if (tag.getLikes() >= tag.getDislikes()) {
+                                tag.setRecommended(true);
+                            } else {
+                                tag.setRecommended(false);
+                            }
                         }
-                    }else {
-                        tag.setDislikes(tag.getDislikes() - 1);
-                        if(tag.getLikes() >= tag.getDislikes()){
-                            tag.setRecommended(true);
-                        }else {
-                            tag.setRecommended(false);
-                        }
-                    }
+                }
+                    break;
                 }
             }
         }

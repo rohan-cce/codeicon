@@ -1,6 +1,8 @@
 package com.example.product.document;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.Value;
 import net.karneim.pojobuilder.GeneratePojoBuilder;
 
 @Data
@@ -8,5 +10,5 @@ import net.karneim.pojobuilder.GeneratePojoBuilder;
 public class TagReview {
   private String tagId;
   private String tagName;
-  private boolean isLiked;
+  private Boolean isLiked;
 }

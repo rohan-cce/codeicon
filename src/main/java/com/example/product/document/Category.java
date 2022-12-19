@@ -9,6 +9,8 @@ import java.util.List;
 @Data
 @GeneratePojoBuilder
 public class Category {
+  @Id
+  private String id;
   private String categoryId;
   private String categoryName;
   private List<Tag> tagList;
