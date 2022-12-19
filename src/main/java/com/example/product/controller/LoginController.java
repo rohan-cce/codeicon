@@ -10,6 +10,7 @@ import org.springframework.web.context.request.async.DeferredResult;
 
 @RestController
 @RequestMapping(value = ApiPath.API)
+@CrossOrigin(value = "*")
 public class LoginController {
   @Autowired
   private LoginService loginService;

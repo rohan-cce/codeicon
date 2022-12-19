@@ -1,9 +1,11 @@
 package com.example.product.service;
 
+import com.example.product.document.Category;
 import com.example.product.document.Recommendation;
-
-import java.util.List;
+import com.example.product.model.AddReviewRequest;
 
 public interface ReviewService {
-    List<Recommendation> findAllReviews();
+    Category findAllReviews(String category);
+
+    public void addReview(AddReviewRequest addReviewRequest);
 }

@@ -22,8 +22,8 @@ public class ProductController {
         return productService.findAllProducts();
     }
     @GetMapping(value = ApiPath.VIEW_PRODUCT)
-    public ProductResponse<Product> findSpecificProduct(@PathVariable("id") String id){
-        return productService.findProductById(id);
+    public ProductResponse<Product> findSpecificProduct(@PathVariable("productId") String productId){
+        return productService.findProductById(productId);
     }
     @PostMapping(value = ApiPath.ADD_PRODUCT)
     public Product addProduct(@RequestBody Product product){
