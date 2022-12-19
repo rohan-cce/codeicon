@@ -10,7 +10,9 @@ public interface ApiPath {
   public String ADD_PRODUCT = PRODUCTS + "/add";
   public String ADD_CATEGORY = PRODUCTS + "/addCategory";
 
-  public String REVIEWS = "/reviews";
-  public String VIEW_ALL_REVIEWS = REVIEWS + "/viewAllReviews";
-  public String ADD_REVIEW = REVIEWS + "/add";
+  public String REVIEWS = API + "/reviews";
+  public String VIEW_ALL_REVIEWS = "/viewAllReviews";
+  public String ADD_REVIEW = "/add";
+
+  public String ADD_CATEGRORY = "/addCategory";
 }
