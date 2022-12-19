@@ -33,7 +33,7 @@ public class ReviewServiceImpl implements ReviewService {
         for (Tag tag: category.getTagList()) {
             for (TagReview tagReview: addReviewRequest.getTagList()) {
                 if(tag.getTagName().equalsIgnoreCase(tagReview.getTagName())){
-                    if(tagReview.isIsliked()){
+                    if(tagReview.isLiked()){
                         tag.setLikes(tag.getLikes() + 1);
                         if(tag.getLikes() >= tag.getDislikes()){
                             tag.setRecommended(true);
@@ -51,8 +51,6 @@ public class ReviewServiceImpl implements ReviewService {
                 }
             }
         }
-
-categoryRepository.save(category);
-
+        categoryRepository.save(category);
     }
 }
