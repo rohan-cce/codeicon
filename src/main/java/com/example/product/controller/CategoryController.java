@@ -25,9 +25,9 @@ public class CategoryController {
      categoryService.addCategory(category);
   }
 
-  @PostMapping(value = ApiPath.GET_CATEGORY)
-  public void getCategroyList(@RequestParam String categoryId){
-    categoryService.getTagList(categoryId);
+  @PostMapping(value = ApiPath.GET_PRODUCT_CATEGORY)
+  public void getCategroyList(@RequestParam String productId){
+    categoryService.getTagList(productId);
   }
 
 }

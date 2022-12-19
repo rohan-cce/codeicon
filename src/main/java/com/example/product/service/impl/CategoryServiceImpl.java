@@ -23,15 +23,15 @@ public class CategoryServiceImpl implements CategoryService {
   }
 
   @Override
-  public TagResponse getTagList(String categoryId) {
+  public TagResponse getTagList(String productId) {
     List<String>  stringList = new ArrayList<>();
-    Category category = categoryRepository.findByCategoryId(categoryId);
+    Category category = categoryRepository.findByProductId(productId);
     List<Tag> tagList = category.getTagList();
    for (int i=0; i < tagList.size(); i++){
      stringList.add(tagList.get(i).getTagName());
    }
    TagResponse  tagResponse = new TagResponse();
-   tagResponse.setCategoryId(categoryId);
+   tagResponse.setProductId(productId);
    tagResponse.setTagList(stringList);
 
    return tagResponse;

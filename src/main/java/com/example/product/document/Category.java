@@ -12,6 +12,9 @@ public class Category {
   @Id
   private String id;
   private String categoryId;
+  private String productId;
+  private String productName;
   private String categoryName;
+  private String textReview = "";
   private List<Tag> tagList;
 }

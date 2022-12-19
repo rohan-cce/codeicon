@@ -13,6 +13,8 @@ public interface CategoryRepository extends MongoRepository<Category, String>{
   String UPCOMING_APPROVED_ORDERS_QUERY = "{categoryId:?0,tagList.tagName:?1}";
   Category findByCategoryId(String categoryId);
 
+  Category findByProductId(String productId);
+
   @Query(value = UPCOMING_APPROVED_ORDERS_QUERY)
   Category getTagByTagName(String categoryId, String tagName);
 

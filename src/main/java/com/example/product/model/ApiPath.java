@@ -13,7 +13,7 @@ public interface ApiPath {
 
   public String ADD_CATEGORY = CATEGORY + "/add";
 
-  public String GET_CATEGORY = "/getCategory";
+  public String GET_PRODUCT_CATEGORY = CATEGORY + "/getProduct";
 
   public String REVIEWS = "/reviews";
   public String VIEW_ALL_REVIEWS = REVIEWS + "/viewAllReviews";

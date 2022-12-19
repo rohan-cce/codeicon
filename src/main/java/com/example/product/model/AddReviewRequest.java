@@ -10,5 +10,8 @@ import net.karneim.pojobuilder.GeneratePojoBuilder;
 public class AddReviewRequest {
   private String categoryId;
   private String categoryName;
+  private String productId;
+  private String productName;
   private List<TagReview> tagList;
+  private String textReview = "";
 }

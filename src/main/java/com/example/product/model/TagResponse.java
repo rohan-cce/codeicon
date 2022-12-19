@@ -8,6 +8,6 @@ import java.util.List;
 @Data
 @GeneratePojoBuilder
 public class TagResponse {
-  private String categoryId;
+  private String productId;
   private List<String> tagList;
 }

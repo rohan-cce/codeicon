@@ -12,10 +12,11 @@ import java.util.List;
 public class Product {
     @Id
     String id;
-    String name;
+    String productName;
     String imageUrl;
     Double oldPrice;
     Double newPrice;
     Double discount;
     String categoryId;
+    String categoryName;
 }
