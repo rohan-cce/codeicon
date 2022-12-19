@@ -13,4 +13,6 @@ public interface ApiPath {
   public String REVIEWS = API + "/reviews";
   public String VIEW_ALL_REVIEWS = "/viewAllReviews";
   public String ADD_REVIEW = "/add";
+
+  public String ADD_CATEGRORY = "/addCategory";
 }
