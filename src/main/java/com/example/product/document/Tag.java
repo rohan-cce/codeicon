@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 @GeneratePojoBuilder
 public class Tag {
   @Id
-  private String id;
+  private int tagId;
   private String tagName;
   private int likes = 0;
   private int dislikes = 0;
