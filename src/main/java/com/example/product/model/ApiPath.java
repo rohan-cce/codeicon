@@ -1,6 +1,5 @@
 package com.example.product.model;
 
-import com.sun.org.apache.regexp.internal.RE;
 
 public interface ApiPath {
   public String API = "/api";
