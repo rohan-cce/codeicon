@@ -51,8 +51,6 @@ public class ReviewServiceImpl implements ReviewService {
                 }
             }
         }
-
-categoryRepository.save(category);
-
+        categoryRepository.save(category);
     }
 }

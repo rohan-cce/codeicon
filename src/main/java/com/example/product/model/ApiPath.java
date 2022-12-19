@@ -1,6 +1,5 @@
 package com.example.product.model;
 
-import com.sun.org.apache.regexp.internal.RE;
 
 public interface ApiPath {
   public String API = "/api";
@@ -13,6 +12,8 @@ public interface ApiPath {
   public String ADD_PRODUCT = PRODUCTS + "/add";
 
   public String ADD_CATEGORY = CATEGORY + "/add";
+
+  public String GET_CATEGORY = "/getCategory";
 
   public String REVIEWS = "/reviews";
   public String VIEW_ALL_REVIEWS = REVIEWS + "/viewAllReviews";
