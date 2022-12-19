@@ -6,6 +6,7 @@ import net.karneim.pojobuilder.GeneratePojoBuilder;
 @Data
 @GeneratePojoBuilder
 public class TagReview {
+  private int tagId;
   private String tagName;
-  private boolean isliked;
+  private boolean isLiked;
 }

@@ -14,7 +14,8 @@ public class Product {
     String id;
     String name;
     String imageUrl;
-    Double price;
+    Double oldPrice;
+    Double newPrice;
+    Double discount;
     String categoryId;
-
 }
