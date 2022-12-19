@@ -2,12 +2,13 @@ package com.example.product.service;
 
 
 import com.example.product.document.Product;
+import com.example.product.model.ProductResponse;
 
 import java.util.List;
 
 public interface ProductService {
-    List<Product> findAllProducts();
-    Product findProductById(String id);
+    ProductResponse findAllProducts();
+    ProductResponse findProductById(String id);
 
     Product addProduct(Product product);
 

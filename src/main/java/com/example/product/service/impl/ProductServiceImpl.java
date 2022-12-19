@@ -1,6 +1,7 @@
 package com.example.product.service.impl;
 
 import com.example.product.document.Product;
+import com.example.product.model.ProductResponse;
 import com.example.product.repository.ProductRepository;
 import com.example.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +15,21 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductRepository productRepository;
     @Override
-    public List<Product> findAllProducts() {
-        return productRepository.findAll();
+    public ProductResponse<List<Product>> findAllProducts() {
+        List<Product> productList = productRepository.findAll();
+        ProductResponse productResponse = new ProductResponse();
+        productResponse.setCode("200");
+        productResponse.setValue(productList);
+        return productResponse;
     }
     @Override
-    public Product findProductById(String id) {
-        return productRepository.findById(id);
+    public ProductResponse<Product> findProductById(String id) {
+        Product product = productRepository.findById(id);
+        ProductResponse productResponse = new ProductResponse();
+        productResponse.setCode("200");
+        productResponse.setValue(product);
+        return productResponse;
     }
-
     @Override
     public Product addProduct(Product product) {
         return productRepository.save(product);

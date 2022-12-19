@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = ApiPath.REVIEWS)
+@RequestMapping(value = ApiPath.API)
 public class ReviewController {
 
     @Autowired
@@ -25,9 +25,11 @@ public class ReviewController {
     * */
 
     @GetMapping(value = ApiPath.VIEW_ALL_REVIEWS)
-    public Recommendation getAllReviews(){
+    public List<Recommendation> getAllReviews(){
         return reviewService.findAllReviews();
     }
+
+
 
     @PostMapping(value = ApiPath.ADD_REVIEW)
     public addReview(@RequestBody Recommendation recommendation){
