@@ -17,15 +17,6 @@ public class ReviewController {
 
     @Autowired
     ReviewService reviewService;
-    /*
-
-    clothing
-        material
-        stitching
-        comfortness
-        colour
-
-    * */
 
     @GetMapping(value = ApiPath.VIEW_ALL_REVIEWS)
     public Category getAllReviews(@RequestParam String categoryId){

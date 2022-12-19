@@ -20,8 +20,9 @@ public class CategoryController {
   @Autowired
   private CategoryService categoryService;
 
-  @PostMapping(value = ApiPath.VIEW_ALL_REVIEWS)
-  public void getAllReviews(@RequestBody Category category){
+  @PostMapping(value = ApiPath.ADD_CATEGORY)
+  public void addCategory(@RequestBody Category category){
      categoryService.addCategory(category);
   }
+
 }
