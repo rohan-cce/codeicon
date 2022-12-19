@@ -19,4 +19,6 @@ public interface ApiPath {
   public String VIEW_ALL_REVIEWS = REVIEWS + "/viewAllReviews";
   public String ADD_REVIEW = REVIEWS + "/add";
 
+  public String GET_REVIEW_COMMENTS = REVIEWS + "/getReviewComments";
+
 }
