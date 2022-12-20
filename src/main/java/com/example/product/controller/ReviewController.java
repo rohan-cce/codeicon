@@ -16,20 +16,16 @@ import java.util.List;
 @RequestMapping(value = ApiPath.API)
 @CrossOrigin(value = "*")
 public class ReviewController {
-
     @Autowired
     ReviewService reviewService;
-
     @GetMapping(value = ApiPath.VIEW_ALL_REVIEWS)
     public Category getAllReviews(@RequestParam String productId){
         return reviewService.findAllReviews(productId);
     }
-
     @GetMapping(value = ApiPath.GET_REVIEW_COMMENTS)
     public CommentResponse getReviewComments(@RequestParam String productId){
         return reviewService.getReviewComments(productId);
     }
-
     @PostMapping(value = ApiPath.ADD_REVIEW)
     public void addReview(@RequestBody AddReviewRequest addReviewRequest){
         reviewService.addReview(addReviewRequest);

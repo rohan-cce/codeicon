@@ -14,20 +14,16 @@ import org.springframework.web.context.request.async.DeferredResult;
 public class LoginController {
   @Autowired
   private LoginService loginService;
-
   @GetMapping(value = ApiPath.LOGIN)
   public LoginResponse loginAuthentication(
           @RequestParam(value = "userId", required = true) String userId,
           @RequestParam(value = "password", required = true) String password){
     return loginService.userLogin(userId, password);
   }
-
   @PostMapping(value = ApiPath.CREATE_USER)
   public LoginResponse createUser(
           @RequestParam(value = "userId", required = true) String userId,
           @RequestParam(value = "password", required = true) String password){
     return loginService.createUser(userId,password);
   }
-
-
 }

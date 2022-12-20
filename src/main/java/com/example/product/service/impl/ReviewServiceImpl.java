@@ -37,29 +37,34 @@ public class ReviewServiceImpl implements ReviewService {
         Category category = categoryRepository.findByProductId(productId);
         category.setId(category.getId());
         HashMap<String, String> userCommentMap = category.getUserCommentMap();
-        userCommentMap.put(addReviewRequest.getUserId(), addReviewRequest.getTextReview());
-        category.setUserCommentMap(userCommentMap);
-        for (Tag tag: category.getTagList()) {
-            for (TagReview tagReview: addReviewRequest.getTagList()) {
-                if(tag.getTagName().equalsIgnoreCase(tagReview.getTagName())) {
-                    if (Objects.nonNull(tagReview.getIsLiked())){
-                        if (tagReview.getIsLiked()) {
-                            tag.setLikes(tag.getLikes() + 1);
-                        } else {
-                            tag.setDislikes(tag.getDislikes() + 1);
+        if(!userCommentMap.containsKey(addReviewRequest.getUserId())){
+            userCommentMap.put(addReviewRequest.getUserId(), addReviewRequest.getTextReview());
+            category.setUserCommentMap(userCommentMap);
+            for (Tag tag: category.getTagList()) {
+                for (TagReview tagReview: addReviewRequest.getTagList()) {
+                    if(tag.getTagName().equalsIgnoreCase(tagReview.getTagName())) {
+                        if (Objects.nonNull(tagReview.getIsLiked())){
+                            if (tagReview.getIsLiked()) {
+                                tag.setLikes(tag.getLikes() + 1);
+                            } else {
+                                tag.setDislikes(tag.getDislikes() + 1);
+                            }
+                            if (tag.getLikes() >= tag.getDislikes()) {
+                                tag.setRecommended(true);
+                            } else {
+                                tag.setRecommended(false);
+                            }
                         }
-                        if (tag.getLikes() >= tag.getDislikes()) {
-                            tag.setRecommended(true);
-                        } else {
-                            tag.setRecommended(false);
-                        }
-                }
                     break;
+                    }
                 }
             }
+        }else{
+            userCommentMap.replace(addReviewRequest.getUserId(),addReviewRequest.getTextReview());
         }
 //        category.setTextReview(addReviewRequest.getTextReview());
         categoryRepository.save(category);
+
     }
 
     @Override
