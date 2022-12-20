@@ -58,7 +58,7 @@ public class ReviewServiceImpl implements ReviewService {
                 }
             }
         }
-        category.setTextReview(addReviewRequest.getTextReview());
+//        category.setTextReview(addReviewRequest.getTextReview());
         categoryRepository.save(category);
     }
 
