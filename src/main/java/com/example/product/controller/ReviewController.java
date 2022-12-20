@@ -21,8 +21,8 @@ public class ReviewController {
     ReviewService reviewService;
 
     @GetMapping(value = ApiPath.VIEW_ALL_REVIEWS)
-    public Category getAllReviews(@RequestParam String categoryId){
-        return reviewService.findAllReviews(categoryId);
+    public Category getAllReviews(@RequestParam String productId){
+        return reviewService.findAllReviews(productId);
     }
 
     @GetMapping(value = ApiPath.GET_REVIEW_COMMENTS)

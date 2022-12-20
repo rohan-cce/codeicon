@@ -27,8 +27,8 @@ public class ReviewServiceImpl implements ReviewService {
     CategoryRepository categoryRepository;
 
     @Override
-    public Category findAllReviews(String category) {
-        return categoryRepository.findByCategoryId(category);
+    public Category findAllReviews(String productId) {
+        return categoryRepository.findByProductId(productId);
     }
 
     @Override

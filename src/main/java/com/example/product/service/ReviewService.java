@@ -8,7 +8,7 @@ import com.example.product.model.TagResponse;
 import java.util.List;
 
 public interface ReviewService {
-    Category findAllReviews(String category);
+    Category findAllReviews(String productId);
 
     public void addReview(AddReviewRequest addReviewRequest);
 
