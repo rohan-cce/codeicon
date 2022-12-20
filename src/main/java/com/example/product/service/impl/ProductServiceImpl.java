@@ -23,8 +23,8 @@ public class ProductServiceImpl implements ProductService {
         return productResponse;
     }
     @Override
-    public ProductResponse<Product> findProductById(String id) {
-        Product product = productRepository.findById(id);
+    public ProductResponse<Product> findProductById(String productId) {
+        Product product = productRepository.findByProductId(productId);
         ProductResponse productResponse = new ProductResponse();
         productResponse.setCode("200");
         productResponse.setValue(product);
