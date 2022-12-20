@@ -69,6 +69,6 @@ public class ReviewServiceImpl implements ReviewService {
        CommentResponse commentResponse = new CommentResponse();
        commentResponse.setCommentHashMap(hashMapComment);
        commentResponse.setProductId(productId);
-        return commentResponse;
+       return commentResponse;
     }
 }

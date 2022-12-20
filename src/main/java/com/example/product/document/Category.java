@@ -17,6 +17,5 @@ public class Category {
   private String productId;
   private String productName;
   private String categoryName;
-  private String textReview = "";
   private List<Tag> tagList;
 }

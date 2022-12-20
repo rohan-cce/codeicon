@@ -13,6 +13,5 @@ public interface ProductRepository extends MongoRepository<Product,Integer> {
     List<Product> findAll();
     Product findById(String id);
     Product save(Product product);
-
     Product findByProductId(String productId);
 }

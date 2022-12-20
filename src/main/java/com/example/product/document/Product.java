@@ -13,10 +13,11 @@ public class Product {
     @Id
     String id;
     String productName;
+    String productId;
     String imageUrl;
     Double oldPrice;
     Double newPrice;
-    Double discount;
+    String  discount;
     String categoryId;
     String categoryName;
 }
